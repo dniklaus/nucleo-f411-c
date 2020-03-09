@@ -20,6 +20,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "Application.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -52,9 +53,6 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
-
-void toggleLed();
-const unsigned long int cLedBlinkTimeMillis = 100;
 
 /* USER CODE END PFP */
 
@@ -94,6 +92,8 @@ int main(void)
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
 
+  setup();
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -101,8 +101,8 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	toggleLed();
-	HAL_Delay(cLedBlinkTimeMillis);
+
+	loop();
 
     /* USER CODE BEGIN 3 */
   }
@@ -219,11 +219,6 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-
-void toggleLed()
-{
-  HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
-}
 
 /* USER CODE END 4 */
 
