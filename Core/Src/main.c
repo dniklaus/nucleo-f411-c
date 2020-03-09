@@ -53,6 +53,9 @@ static void MX_GPIO_Init(void);
 static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
 
+void toggleLed();
+const unsigned long int cLedBlinkTimeMillis = 100;
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -98,6 +101,8 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
+	toggleLed();
+	HAL_Delay(cLedBlinkTimeMillis);
 
     /* USER CODE BEGIN 3 */
   }
@@ -214,6 +219,11 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+void toggleLed()
+{
+  HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
+}
 
 /* USER CODE END 4 */
 
