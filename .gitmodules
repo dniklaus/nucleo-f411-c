@@ -1,3 +1,0 @@
-[submodule "lib/spin-timer"]
-	path = lib/spin-timer
-	url = https://github.com/dniklaus/wiring-timer-c.git
